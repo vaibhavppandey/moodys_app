@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MoodysApp());
-}
+import 'package:thale_task_app/src/feature/business/presentation/business_page.dart';
 
 class MoodysApp extends StatelessWidget {
   const MoodysApp({super.key});
@@ -12,11 +10,17 @@ class MoodysApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Moodys',
+      themeMode: ThemeMode.dark,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.redAccent.shade400),
         useMaterial3: true,
       ),
-      home: const Placeholder(),
+      darkTheme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.redAccent.shade400, brightness: Brightness.dark),
+        useMaterial3: true,
+      ),
+      home: const BusinessesPage(),
     );
   }
 }
