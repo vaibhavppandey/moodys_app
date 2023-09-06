@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:thale_task_app/src/feature/business/bloc/business_bloc.dart';
 import 'package:thale_task_app/src/feature/business/presentation/component/business_card.dart';
+import 'package:thale_task_app/src/feature/business/bloc/business_bloc.dart';
+import 'package:thale_task_app/src/feature/cart/bloc/cart_bloc.dart';
+
+import 'package:thale_task_app/src/feature/cart/model/restaurant.dart';
 
 class BusinessesPage extends StatefulWidget {
   const BusinessesPage({super.key});
-
   @override
   State<BusinessesPage> createState() => _BusinessesPageState();
 }
 
 class _BusinessesPageState extends State<BusinessesPage> {
   @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<BusinessesBloc>(context).add(BusinessesInitialFetchEvent());
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final BusinessesBloc businessesBloc =
-        BlocProvider.of<BusinessesBloc>(context);
     return Scaffold(
       appBar: AppBar(
           title: Text(
@@ -39,12 +45,17 @@ class _BusinessesPageState extends State<BusinessesPage> {
                       itemCount: successfulState.businesses.length,
                       separatorBuilder: (context, _) => const Padding(
                             padding: EdgeInsets.symmetric(
-                                vertical: 8.0, horizontal: 24.0),
+                                vertical: 4.0, horizontal: 24.0),
                             child: Divider(),
                           ),
                       itemBuilder: (context, index) {
                         return RestrauntBusinessCard(
-                            businessModel: successfulState.businesses[index]);
+                          businessModel: successfulState.businesses[index],
+                          cartAction: () => BlocProvider.of<CartBloc>(context)
+                              .add(AddToCartEvent(
+                                  item: Restaurant.fromBusiness(
+                                      successfulState.businesses[index]))),
+                        );
                       }));
             default:
               return const Center(child: Text("Something went wrong"));
@@ -52,8 +63,8 @@ class _BusinessesPageState extends State<BusinessesPage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => businessesBloc.add(BusinessesInitialFetchEvent()),
-        child: const Icon(Icons.food_bank_rounded),
+        onPressed: () => Navigator.pushNamed(context, '/cart'),
+        child: const Icon(Icons.shopping_cart_checkout_rounded),
       ),
     );
   }

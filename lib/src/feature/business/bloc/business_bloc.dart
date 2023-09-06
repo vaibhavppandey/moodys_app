@@ -19,14 +19,14 @@ class BusinessesBloc extends Bloc<BusinessEvent, BusinessState> {
       BusinessesInitialFetchEvent event, Emitter<BusinessState> emit) async {
     emit(BusinessFetchingLoadingState());
     List<Business> businesses =
-        await BusinessesRepository.getSearchedBusinesses(term: "pizza");
+        await BusinessesRepository.getSearchedBusinesses(term: "restaurant");
     emit(BusinessFetchingSuccessfulState(businesses: businesses));
   }
 
-  FutureOr<void> refreshBusinessQuery(event, emit) async {
+  FutureOr<void> refreshBusinessQuery(BusinessRefreshEvent event, emit) async {
     emit(BusinessFetchingLoadingState());
     List<Business> businesses =
-        await BusinessesRepository.getSearchedBusinesses(term: "burger");
+        await BusinessesRepository.getSearchedBusinesses(term: event.term);
     emit(BusinessFetchingSuccessfulState(businesses: businesses));
   }
 }

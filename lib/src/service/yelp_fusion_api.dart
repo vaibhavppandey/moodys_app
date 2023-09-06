@@ -5,7 +5,6 @@ final _logger = Logger();
 
 class YelpFusionApi {
   final String baseUrl = constants.baseUrl;
-
   final String apiKey = constants.apiKey;
 
   Map<String, dynamic> get headers => {'Authorization': 'Bearer $apiKey'};
