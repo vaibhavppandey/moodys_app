@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:thale_task_app/src/feature/cart/bloc/cart_bloc.dart';
 
 import 'package:thale_task_app/src/feature/cart/model/restaurant.dart';
 
@@ -46,6 +48,11 @@ class CarrtItemCard extends StatelessWidget {
                     restaurant.phone,
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
+                  IconButton(
+                    icon: const Icon(Icons.shopping_basket_sharp),
+                    onPressed: () => BlocProvider.of<CartBloc>(context)
+                        .add(RemoveFromCartEvent(item: restaurant)),
+                  )
                 ],
               )),
             )

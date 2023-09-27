@@ -15,7 +15,16 @@ class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Cart")),
+      appBar: AppBar(
+        title: const Text("Cart"),
+        actions: <IconButton>[
+          IconButton(
+            icon: const Icon(Icons.shopping_cart),
+            onPressed: () =>
+                BlocProvider.of<CartBloc>(context).add(EmptyCartEvent()),
+          )
+        ],
+      ),
       body: BlocConsumer<CartBloc, CartState>(
         listener: (context, state) {},
         builder: (context, state) {
