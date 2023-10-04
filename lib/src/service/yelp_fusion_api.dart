@@ -1,4 +1,4 @@
-import 'package:thale_task_app/src/constant/api.dart' as constants;
+import 'package:moodys_app/src/constant/api.dart' as constants;
 import 'package:logger/logger.dart';
 
 final _logger = Logger();

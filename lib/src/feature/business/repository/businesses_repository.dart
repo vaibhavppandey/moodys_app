@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
 
-import 'package:thale_task_app/src/service/yelp_fusion_api.dart';
-import 'package:thale_task_app/src/feature/business/model/business.dart';
+import 'package:moodys_app/src/service/yelp_fusion_api.dart';
+import 'package:moodys_app/src/feature/business/model/business.dart';
 
 final YelpFusionApi _api = YelpFusionApi();
 final Dio _dio = Dio();

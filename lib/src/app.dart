@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:thale_task_app/src/feature/business/bloc/business_bloc.dart';
-import 'package:thale_task_app/src/feature/cart/bloc/cart_bloc.dart';
+import 'package:moodys_app/src/feature/business/bloc/business_bloc.dart';
+import 'package:moodys_app/src/feature/cart/bloc/cart_bloc.dart';
 
-import 'package:thale_task_app/src/feature/business/presentation/business_page.dart';
-import 'package:thale_task_app/src/feature/cart/presentation/cart_page.dart';
+import 'package:moodys_app/src/feature/business/presentation/business_page.dart';
+import 'package:moodys_app/src/feature/cart/presentation/cart_page.dart';
 
 class MoodysApp extends StatelessWidget {
   const MoodysApp({super.key});

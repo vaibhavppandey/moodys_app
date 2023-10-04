@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:thale_task_app/src/feature/business/presentation/component/business_card.dart';
-import 'package:thale_task_app/src/feature/business/bloc/business_bloc.dart';
-import 'package:thale_task_app/src/feature/cart/bloc/cart_bloc.dart';
+import 'package:moodys_app/src/feature/business/presentation/component/business_card.dart';
+import 'package:moodys_app/src/feature/business/bloc/business_bloc.dart';
+import 'package:moodys_app/src/feature/cart/bloc/cart_bloc.dart';
 
-import 'package:thale_task_app/src/feature/cart/model/restaurant.dart';
+import 'package:moodys_app/src/feature/cart/model/restaurant.dart';
 
 class BusinessesPage extends StatefulWidget {
   const BusinessesPage({super.key});
@@ -51,28 +50,25 @@ class _BusinessesPageState extends State<BusinessesPage> {
                 height: double.infinity,
                 width: double.infinity,
                 child: Column(children: <Widget>[
-                  Flexible(
-                    flex: 1,
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 16.0, bottom: 1.0),
-                      child: SizedBox(
-                        height: 48,
-                        child: TextField(
-                          textInputAction: TextInputAction.go,
-                          controller: _controller,
-                          decoration: const InputDecoration(
-                              border: OutlineInputBorder(),
-                              labelText: "Search business"),
-                          onSubmitted: (String value) {
-                            BlocProvider.of<BusinessesBloc>(context)
-                                .add(BusinessRefreshEvent(term: value));
-                          },
-                        ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 16.0, bottom: 8.0),
+                    child: SizedBox(
+                      height: 48,
+                      child: TextField(
+                        textInputAction: TextInputAction.go,
+                        controller: _controller,
+                        decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: "Search business"),
+                        onSubmitted: (String value) {
+                          BlocProvider.of<BusinessesBloc>(context)
+                              .add(BusinessRefreshEvent(term: value));
+                        },
                       ),
                     ),
                   ),
                   Expanded(
-                    flex: 9,
+                    // flex: 9,
                     child: ListView.separated(
                         itemCount: successfulState.businesses.length,
                         separatorBuilder: (context, _) => const Padding(

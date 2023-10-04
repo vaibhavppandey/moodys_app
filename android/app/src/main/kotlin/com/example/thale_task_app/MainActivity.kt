@@ -1,4 +1,4 @@
-package com.example.thale_task_app
+package com.example.moodys_app
 
 import io.flutter.embedding.android.FlutterActivity
 

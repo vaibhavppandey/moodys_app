@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thale_task_app/src/feature/business/model/business.dart';
+import 'package:moodys_app/src/feature/business/model/business.dart';
 
 class RestrauntBusinessCard extends StatefulWidget {
   final Business businessModel;

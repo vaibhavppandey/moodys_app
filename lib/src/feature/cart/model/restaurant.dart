@@ -1,4 +1,4 @@
-import 'package:thale_task_app/src/feature/business/model/business.dart';
+import 'package:moodys_app/src/feature/business/model/business.dart';
 
 class Restaurant {
   final String id;

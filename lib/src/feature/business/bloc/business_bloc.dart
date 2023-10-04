@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
-import 'package:thale_task_app/src/feature/business/model/business.dart';
-import 'package:thale_task_app/src/feature/business/repository/businesses_repository.dart';
+import 'package:moodys_app/src/feature/business/model/business.dart';
+import 'package:moodys_app/src/feature/business/repository/businesses_repository.dart';
 
 part 'business_event.dart';
 part 'business_state.dart';

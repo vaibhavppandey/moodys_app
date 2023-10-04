@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:thale_task_app/src/feature/cart/bloc/cart_bloc.dart';
-import 'package:thale_task_app/src/feature/cart/presentation/components/cart_item_card.dart';
+import 'package:moodys_app/src/feature/cart/bloc/cart_bloc.dart';
+import 'package:moodys_app/src/feature/cart/presentation/components/cart_item_card.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});

@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
-import 'package:thale_task_app/src/feature/cart/repository/cart.dart';
-import 'package:thale_task_app/src/feature/cart/model/restaurant.dart';
+import 'package:moodys_app/src/feature/cart/repository/cart.dart';
+import 'package:moodys_app/src/feature/cart/model/restaurant.dart';
 
 part 'cart_event.dart';
 part 'cart_state.dart';
@@ -19,7 +19,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   FutureOr<void> addToCart(
       AddToCartEvent event, Emitter<CartState> emit) async {
     emit(CartLoadingState());
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(milliseconds: 200));
     cartRepository.addToCart(event.item);
     emit(CartLoadedState(items: cartRepository.getCartItems));
   }
@@ -27,7 +27,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   FutureOr<void> removeFromCart(
       RemoveFromCartEvent event, Emitter<CartState> emit) async {
     emit(CartLoadingState());
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(milliseconds: 200));
     cartRepository.removeFromCart(event.item);
     emit(CartLoadedState(items: cartRepository.getCartItems));
   }
@@ -35,8 +35,8 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   FutureOr<void> emptyCart(
       EmptyCartEvent event, Emitter<CartState> emit) async {
     emit(CartLoadingState());
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(milliseconds: 200));
     cartRepository.emptyCart();
-    emit(CartLoadedState(items: cartRepository.getCartItems));
+    emit(CartInitial());
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:thale_task_app/src/feature/cart/bloc/cart_bloc.dart';
+import 'package:moodys_app/src/feature/cart/bloc/cart_bloc.dart';
 
-import 'package:thale_task_app/src/feature/cart/model/restaurant.dart';
+import 'package:moodys_app/src/feature/cart/model/restaurant.dart';
 
 class CarrtItemCard extends StatelessWidget {
   final Restaurant restaurant;
@@ -15,10 +15,12 @@ class CarrtItemCard extends StatelessWidget {
       child: Card(
         elevation: 0,
         child: Row(
+          mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
+              alignment: Alignment.centerLeft,
               clipBehavior: Clip.antiAliasWithSaveLayer,
               height: double.infinity,
               width: 150,
@@ -31,10 +33,9 @@ class CarrtItemCard extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Expanded(
-                  child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Flexible(
@@ -54,7 +55,7 @@ class CarrtItemCard extends StatelessWidget {
                         .add(RemoveFromCartEvent(item: restaurant)),
                   )
                 ],
-              )),
+              ),
             )
           ],
         ),
